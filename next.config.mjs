@@ -5,6 +5,11 @@ const nextConfig = {
   // basePath: '/interactive-rating-component',
   images: {
     unoptimized: true,
+  },
+  experimental: {
+    images: {
+      unoptimized: true
+    }
   }
 };
 
