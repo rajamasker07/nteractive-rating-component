@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
   distDir: 'dist',
-  basePath: '/interactive-rating-component',
+  // basePath: '/interactive-rating-component',
   images: {
     unoptimized: true
   }
