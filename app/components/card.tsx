@@ -34,7 +34,8 @@ export default function Card() {
       <button type='button'
         className='
           rounded-full w-full h-8 content-center justify-center
-          bg-orange-500 hover:bg-orange-600 font-bold uppercase text-white'
+          bg-orange-500 hover:bg-gray-400 font-bold uppercase text-white
+          hover:text-orange-600'
       >
         SUBMIT
       </button>

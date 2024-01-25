@@ -39,7 +39,7 @@ export default function CustomChecklist({
           text-sm
           bg-neutral-700
           rounded-full
-          hover:bg-orange-600
+          hover:bg-gray-400
           hover:font-bold
           size-10
           ${isChecked ? 'peer-checked:bg-orange-600 font-bold' : ''}
