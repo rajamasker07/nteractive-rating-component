@@ -1,9 +1,31 @@
+'use client';
+
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import starIcon from '../../public/assets/icon-star.svg'
 import RatingList from './rating-lists'
 
-export default function Card() {
+type cardProps = {
+  // eslint-disable-next-line no-unused-vars
+  updateRating: (rate: number) => void,
+  maxRating: number,
+}
+
+export default function Card({
+  updateRating,
+  maxRating
+}: cardProps) {
+
+  const [rating, setRating] = useState(0);
+
+  const ratingChanged = (rate: number) => {
+    setRating(rate);
+  }
+
+  const postRating = () => {
+    updateRating(rating)
+  }
+
   return (
     <div className={
       `flex
@@ -29,9 +51,12 @@ export default function Card() {
           All feedback is appreciated to help us improfe our offering
         </p>
       </hgroup>
-      <RatingList/>
+      <RatingList
+        maxRating={maxRating}
+        ratingChangeHandle={ratingChanged}
+      />
 
-      <button type='button'
+      <button type='button' onClick={postRating}
         className='
           rounded-full w-full h-8 content-center justify-center
           bg-orange-500 hover:bg-gray-400 font-bold uppercase text-white

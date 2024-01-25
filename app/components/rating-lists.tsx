@@ -3,16 +3,33 @@
 import React, { useState } from 'react'
 import CustomChecklist from './custom-checklist';
 
-export default function RatingList() {
+type listProps = {
+  // eslint-disable-next-line no-unused-vars
+  ratingChangeHandle: (item: number) => void,
+  maxRating: number,
+}
 
-  const [checkedState, setCheckedState] = useState(new Array(5).fill(false));
+export default function RatingList({
+  ratingChangeHandle,
+  maxRating
+}: listProps) {
+
+  const [checkedState, setCheckedState] = useState(new Array(maxRating).fill(false));
 
   const handleOnChange = (position: number) => {
     const updateCheckedState = checkedState.map((_item, index) => {
-      return position === index ? true : false;
+      if(position === index) {
+        sendratingToCard(index + 1);
+        return true
+      } else {
+        return false
+      }
     })
-
     setCheckedState(updateCheckedState);
+  }
+
+  const sendratingToCard = (rate: number) => {
+    ratingChangeHandle(rate);
   }
 
   return (
